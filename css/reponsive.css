@@ -1,0 +1,242 @@
+
+
+@media (max-width: 1023px) { 
+
+#logo{
+font-size: 30px;
+} 
+.text-md {
+	font-size: 18px;
+}
+.text-sml{
+	font-size: 16px;
+}
+    #city-name {
+        font-size: 26px;
+    }
+
+    #current-temp {
+        font-size: 26px;
+    }
+    #mainsec {
+      width: 90% !important;
+      height: 100% !important;
+      margin-top: 3rem !important;
+      
+    }
+    .cln{
+        flex-direction: column;
+        
+    }
+    .flex.flex-col.gap-6.w-2\/3.displaycontent {
+        width: 100%;
+    }
+    #days-h {
+        width: 60%;
+    }
+
+   #air-quality {
+	width: 85%;
+	height: 300px;
+}
+   #aqi-value{
+    font-size: 24PX;
+    margin: 14px 0;
+   }
+   #dynamicimg img{
+    height: 135px;
+   }
+   .sun{
+    height: 75px;
+    width: 75px;
+   }
+   .fix-gap{
+    gap: 10px;
+   }
+   #air-pollution {
+	width: 50%;
+}
+#addclass {
+	display: flex;
+	flex-direction: column;
+}
+  }
+
+ 
+  @media (max-width: 567px) { 
+
+#hamburger{
+    display: inline;
+    margin: 17px 12px;
+}
+    #nav {
+        
+        flex-direction: column;
+        height: 250px;
+        align-items: normal;
+        width: 50%;
+        background: #0E1923;
+        transition: height 0.8s ease;
+    }
+
+    li {
+        margin: 12px 20px;
+        align-items: center;
+    }
+   
+    .nav-link{
+         flex-direction: column;
+        
+    }
+    .text-xl.text-white.hover\:text-orange-500.transition.mx-6.text-md.m-fix {
+        white-space: nowrap;
+    }
+    
+    video{
+        display: none;
+    }
+    .m-fix{
+        margin: 0;
+    }
+    #search {
+        width: 90%;
+    }
+    .main-display.flex.justify-between.items-center.w-\[60\%\] {
+        width: 100%;
+    }
+      #days-h {
+        width: 80%;
+    }
+    #temp-6am{font-size: 14px;}
+    #temp-9am{font-size: 14px;}
+   #temp-12pm{font-size: 14px;}
+    #temp-3pm{font-size: 14px;}
+    #temp-6pm{font-size: 14px;}
+    #temp-9pm{font-size: 14px;}
+ 
+    #icon-6am {height: 3rem;
+    width: 3rem;}
+    #icon-9am {height: 3rem;
+    width: 3rem;}
+    #icon-12pm {height: 3rem;
+    width: 3rem;}
+    #icon-3pm {height: 3rem;
+    width: 3rem;}
+    #icon-6pm {height: 3rem;
+    width: 3rem;}
+    #icon-9pm {height: 3rem;
+    width: 3rem;}
+
+    #air-quality {
+        width: 95%;
+        height: 260px;
+    }
+    .text-sml {
+        font-size: 12px;
+        margin: 4px auto;
+    }
+    #dynamicimg{
+        display: none;
+
+    }
+    .sun{
+        display: none;
+    }
+    #hed {
+        margin-top: 3rem;
+    }
+    #air-pollution {
+        width: auto;
+        margin: 0 23px;
+    }
+  }
+/* for mobile devices */
+  @media (max-width: 405px)  {
+
+    #search {
+        width: 240px;
+      
+    }
+    #current-icon {
+        height: 100px;
+        width: 100px;
+    }
+    #city-name {
+        font-size: 17px;
+    }
+
+    #current-temp {
+        font-size: 18px;
+    }
+    .main-display {
+        width: 100%;
+        margin: 12px auto;
+    }
+    #mainsec {
+        width: 100% !important;
+        
+        
+      }
+      .flex.flex-col.gap-6.w-2\/3.displaycontent {
+        width: 90%;
+        justify-content: center;
+        margin: auto;
+    }
+    .text-xs.text-gray-400 {
+        font-size: 12px;
+    }
+  
+    #temp-6am{font-size: 10px;}
+    #temp-9am{font-size: 10px;}
+   #temp-12pm{font-size: 10px;}
+    #temp-3pm{font-size: 10px;}
+    #temp-6pm{font-size: 10px;}
+    #temp-9pm{font-size: 10px;}
+ 
+    #icon-6am {height: 2rem;
+    width: 2rem;}
+    #icon-9am {height: 2rem;
+    width: 2rem;}
+    #icon-12pm {height: 2rem;
+    width: 2rem;}
+    #icon-3pm {height: 2rem;
+    width: 2rem;}
+    #icon-6pm {height: 2rem;
+    width: 2rem;}
+    #icon-9pm {height: 2rem;
+    width: 2rem;}
+
+  #days-h {
+	width: 100%;
+}
+.w-\[60px\].p-logo {
+	width: 40px;
+}
+.pol-text{
+    font-size: 14px;
+}
+#pm{
+    font-size: 14px;
+}
+#PM10{
+    font-size: 14px;
+}
+#co-value{
+    font-size: 14px;
+}
+#so2-value{
+    font-size: 14px;
+}
+#no2-value{
+    font-size: 14px;
+}
+#o3-value{
+    font-size: 14px;
+}
+.text-black.hover\:text-orange-500.focus\:text-slate-500.text-xl.text-md {
+	font-size: 11px;
+}
+.relative.z-10.ml-12 {
+	width: 100vw;
+}
+  }

@@ -1,0 +1,58 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans", serif;
+    color: whitesmoke;
+  
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+   background: #0E1923;
+  }
+
+
+  #nav {
+    position: relative;
+  }
+
+  #nav video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Places the video behind the navbar content */
+  }
+
+  #nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for better text readability */
+    z-index: -1;
+  }
+
+  /* cloud animation */
+  @keyframes moveClouds {
+    0% { transform: translateX(-5%); }
+    50% { transform: translateX(5%); }
+    100% { transform: translateX(-5%); }
+}
+
+.clouds {
+    animation: moveClouds 12s infinite ease-in-out;
+}
+
+/* live button  */
+@keyframes blink {
+  50% { opacity: 0; }
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather.IO</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reponsive.css">
+   <script src="./js/index.js"></script>
+   <script src="./js/resp.js"></script>
+   <script src="./js/app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+  <nav class="flex h-28 shadow-md items-center px-6 top-0 w-full" id="nav">
+    
+    <video autoplay loop muted>
+      <source src="./17916134-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div id="hamburger" class=" hamburger hidden ">
+      ☰
+    </div>
+    <div class="w-[222px]">
+     <h1 id="logo" class="text-orange-500 text-4xl cursor-pointer"><a href="">Weathers.io</a></h1>
+    </div>
+
+    
+    <div id="navp2" class="flex navp2">
+      <ul class="flex nav-link">
+        <li><a class="text-xl text-white hover:text-orange-500 transition mx-6 text-md " href="#">Home</a></li>
+        <li><a class="text-xl text-white hover:text-orange-500 transition mx-6 text-md " href="#mainsec">Weather</a></li>
+        <li><a class="text-xl text-white hover:text-orange-500 transition mx-6 text-md m-fix " href="#air-quality">Air Quality Index</a></li>
+      </ul>
+    </div>
+  </nav>
+      <section id="mainsec" class="w-[80%] bg-[#0B131E] h-[870px] shadow-lg p-6 flex flex-col gap-6 mx-auto mt-24 mb-40 ">
+          <div class="search w-full mt-12">
+            <label for="search" class="block relative"> 
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <i class="fas fa-search text-gray-500"></i> 
+              </span>
+              <input 
+                  type="search" 
+                  id="search" 
+                  class="w-[30rem] p-3 pl-10 rounded-md border border-gray-700 bg-[#0B131E] text-white placeholder-gray-400 " 
+                  placeholder="Enter the City " 
+              />
+          </label>
+          </div>
+          
+          <!-- Main Display Section -->
+          <div class="main-display flex justify-between items-center w-[60%]">
+            <!-- City and Temperature Details -->
+            <div class="content-details w-1/2 mt-11">
+              <h1 id="city-name" class="text-white text-[36px] font-bold lg-[50px]  ">Madrid</h1>
+              <!-- <p id="rain-chance" class="text-gray-400 text-sm mt-1">Chance of rain: 0%</p> -->
+              <h2 id="current-temp" class="text-white text-6xl font-bold mt-4">31°</h2>
+            </div>
+          
+          
+          <!-- Weather Icon -->
+          <div class="weather-icon w-1/2 flex justify-center mt-8">
+            <div id="current-icon" class="h-[120px] w-[150px] rounded-full"></div>
+          </div>
+        </div>
+      </div>
+        <!-- Content Section -->
+        <div class="flex gap-6 cln">
+          <!-- Left Column: Today's Forecast and Air Conditions -->
+          <div class="flex flex-col gap-6 w-2/3 displaycontent">
+
+            <section class=" forcast mt-5">
+            <!-- Today's Forecast Section -->
+             <div class="bg-gray-800 rounded-xl shadow-lg p-6 "> 
+              <h2 class="text-gray-400 text-sm font-semibold mb-4">TODAY'S FORECAST</h2>
+              <div class="grid grid-cols-6 gap-4 text-center text-white">
+               
+                <div id="forecast-6am">
+                  <p class="text-xs text-gray-400">6:00 AM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-6am" src="https://via.placeholder.com/30x30?text=🌥" alt="cloudy" class="w-16 h-16">
+                  </div>
+                  <p id="temp-6am" class="text-lg font-bold mtxt ">25°</p>
+                </div>
+    
+                <div id="forecast-9am">
+                  <p class="text-xs text-gray-400">9:00 AM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-9am" src="https://via.placeholder.com/30x30?text=🌤" alt="partly sunny" class="w-16 h-16">
+                  </div>
+                  <p id="temp-9am" class="text-lg font-bold mtxt ">28°</p> 
+                </div>
+    
+                <div id="forecast-12pm">
+                  <p class="text-xs text-gray-400">12:00 PM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-12pm" src="https://via.placeholder.com/30x30?text=☀️" alt="sunny" class="w-16 h-16">
+                  </div>
+                  <p id="temp-12pm" class="text-lg font-bold mtxt ">33°</p>
+                </div>
+    
+                <div id="forecast-3pm">
+                  <p class="text-xs text-gray-400">3:00 PM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-3pm" src="https://via.placeholder.com/30x30?text=☀️" alt="sunny" class="w-16 h-16">
+                  </div>
+                  <p id="temp-3pm" class="text-lg font-bold mtxt">34°</p>
+                </div>
+    
+                <div id="forecast-6pm">
+                  <p class="text-xs text-gray-400">6:00 PM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-6pm" src="https://via.placeholder.com/30x30?text=☀️" alt="sunny" class="w-16 h-16">
+                  </div>
+                  <p id="temp-6pm" class="text-lg font-bold mtxt ">32°</p>
+                </div>
+    
+                <div id="forecast-9pm">
+                  <p class="text-xs text-gray-400">9:00 PM</p>
+                  <div class="flex justify-center items-center my-2">
+                    <img id="icon-9pm" src="https://via.placeholder.com/30x30?text=🌤" alt="partly sunny" class="w-16 h-16">
+                  </div>
+                  <p id="temp-9pm" class="text-lg font-bold mtxt ">30°</p>
+                </div>
+              </div>
+            </div>  
+    
+            </section>
+
+            <!-- Air Conditions Section -->
+            <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+              <h2 class="text-gray-400 text-sm font-semibold mb-4">AIR CONDITIONS</h2>
+              <div class="grid grid-cols-2 gap-4 text-white">
+                <div>
+                  <i class="fa-solid fa-temperature-high"></i>
+                  <p class="text-sm text-gray-400">  Real Feel</p>
+                  <p id="real-feel" class="text-lg font-bold">30°</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-wind"></i>
+                  <p class="text-sm text-gray-400">  Wind</p>
+                  <p id="wind-speed" class="text-lg font-bold">0.2 km/h</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-cloud-rain"></i>
+                  <p class="text-sm text-gray-400">Chance of Rain</p>
+                  <p id="rain-chance" class="text-lg font-bold">0%</p>
+                </div>
+                <div>
+                  <i class="fa-solid fa-sun"></i>
+                  <p class="text-sm text-gray-400">UV Index</p>
+                  <p id="uv-index" class="text-lg font-bold">3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Right Column: 7-Day Forecast -->
+          <div id="days-h" class="w-1/3 bg-gray-800 rounded-xl shadow-lg p-6 days-7">
+            <h2 class="text-gray-400 text-sm font-semibold mb-4">7-DAY FORECAST</h2>
+            <div class="flex flex-col gap-4 text-white">
+              <!-- Daily Forecast Entry -->
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Today</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☀️" alt="Sunny" class="w-6 h-6">
+                  <span class="font-bold ">Sunny</span>
+                </div>
+                <p class="text-sm">36°/22°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Tue</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☀️" alt="Sunny" class="w-6 h-6">
+                  <span class="font-bold ">Sunny</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Wed</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☀️" alt="Sunny" class="w-6 h-6">
+                  <span class="font-bold ">Sunny</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Thu</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☁️" alt="Cloudy" class="w-6 h-6">
+                  <span class="font-bold ">Cloudy</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Fri</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☁️" alt="Cloudy" class="w-6 h-6">
+                  <span class="font-bold ">Cloudy</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Sat</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=🌧" alt="Rainy" class="w-6 h-6">
+                  <span class="font-bold ">Rainy</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+    
+              <div class="flex justify-between items-center">
+                <p class="text-sm">Sun</p>
+                <div class="flex items-center gap-2">
+                  <img src="https://via.placeholder.com/30x30?text=☀️" alt="Sunny" class="w-6 h-6">
+                  <span class="font-bold ">Sunny</span>
+                </div>
+                <p class="text-sm">37°/21°</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="air-quality" class="relative max-w-6xl mx-auto bg-gradient-to-r from-yellow-300 to-yellow-100 rounded-3xl p-8 flex items-center justify-between shadow-lg mt-32 w-[63%] overflow-hidden">
+        <!-- Background Cloud Animation -->
+        <div class="absolute inset-0">
+            <img src="./imgs/240_F_917836556_u5hARWaDhZrupyOnB7rNrRiicAc1OJsC-removebg-preview (1).png" alt="Moving Clouds" class="w-full h-full object-cover opacity-50 cloud-animation clouds ">
+        </div>
+
+        <!-- Left Section -->
+        <div class="relative z-10 ml-12">
+            <!-- Live AQI -->
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 bg-red-500 rounded-full animate-[blink_1s_infinite]"></span>
+                <p class="text-gray-800 font-medium">Live AQI</p>
+            </div>
+            
+            <!-- AQI Value -->
+            <p id="aqi-value" class="text-6xl font-bold text-yellow-800 ">90</p>
+            <p class="mx-0 my-5 text-black mt-4 font-semibold text-sml ">Air Quality is</p>
+            
+            <!-- Air Quality Status -->
+            <div id="Statusbox" class="bg-yellow-500 text-white px-4 py-2 rounded-md inline-block mt-2">
+                <p id="air-quality-status" class=" font-semibold text-sml ">Good</p>
+            </div>
+
+            <!-- PM10 & PM2.5 -->
+            <div class="flex gap-6 mt-4 text-gray-700 fix-gap">
+                <p class="font-semibold text-orange-500 text-sml ">PM10 : <span id="pm10-value" class="text-gray-900 text-sml ">--</span> µg/m³</p>
+                <p class="font-semibold text-orange-500 text-sml ">PM2.5 : <span id="pm25-value" class="text-gray-900 text-sml ">--</span> µg/m³</p>
+            </div>
+        </div>
+
+        <!-- Right Section (Illustration) -->
+        <div class="relative z-10 w-1/3">
+            <svg class="sun" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
+                <radialGradient id="gradient1" cx="24" cy="24" r="22" gradientUnits="userSpaceOnUse">
+                    <stop offset=".724" stop-color="#ffed54"></stop>
+                    <stop offset=".779" stop-color="#ffe649"></stop>
+                    <stop offset=".877" stop-color="#ffd22d"></stop>
+                    <stop offset="1" stop-color="#ffb300"></stop>
+                </radialGradient>
+                <path fill="url(#gradient1)" d="M24,2l1.421,1.474c0.93,0.965,2.388,1.196,3.571,0.566l1.807-0.963l0.896,1.841c0.586,1.205,1.902,1.876,3.222,1.641l2.016-0.357l0.283,2.028c0.185,1.328,1.229,2.371,2.557,2.557l2.028,0.283l-0.357,2.016c-0.234,1.32,0.436,2.635,1.641,3.222l1.841,0.896l-0.963,1.807c-0.631,1.183-0.4,2.641,0.566,3.571L46,24l-1.474,1.421c-0.965,0.93-1.196,2.388-0.566,3.571l0.963,1.807l-1.841,0.896c-1.205,0.586-1.876,1.902-1.641,3.222l0.357,2.016l-2.028,0.283c-1.328,0.185-2.371,1.229-2.557,2.557l-0.283,2.028l-2.016-0.357c-1.32-0.234-2.635,0.436-3.222,1.641l-0.896,1.841l-1.807-0.963c-1.183-0.631-2.641-0.4-3.571,0.566L24,46l-1.421-1.474c-0.93-0.965-2.388-1.196-3.571-0.566l-1.807,0.963l-0.896-1.841c-0.586-1.205-1.902-1.876-3.222-1.641l-2.016,0.357l-0.283-2.028c-0.185-1.328-1.229-2.371-2.557-2.557l-2.028-0.283l0.357-2.016c0.234-1.32-0.436-2.635-1.641-3.222l-1.841-0.896l0.963-1.807c0.631-1.183,0.4-2.641-0.566-3.571L2,24l1.474-1.421c0.965-0.93,1.196-2.388,0.566-3.571l-0.963-1.807l1.841-0.896c1.205-0.586,1.876-1.902,1.641-3.222l-0.357-2.016l2.028-0.283c1.328-0.185,2.371-1.229,2.557-2.557l0.283-2.028l2.016,0.357c1.32,0.234,2.635-0.436,3.222-1.641l0.896-1.841l1.807,0.963c1.183,0.631,2.641,0.4,3.571-0.566L24,2z"></path>
+            </svg>
+            <div id="dynamicimg">
+            <!-- <img id="boy-img" src="./imgs/boy-img/moderate-aqi-level.svg" alt="Character" class="mt-6 h-48"> -->
+            </div>
+        </div>
+    </section> 
+
+    <section id="air-pollution" class="max-w-6xl mx-auto mt-24">
+      <!-- Header Section -->
+      <div class="flex justify-between items-center">
+          <div>
+              <h2 id="hed" class="text-2xl font-semibold text-white">Major Air Pollutants</h2>
+            <h3 class="mt-8 text-2xl text-white " id="aqicity" >City not found </h3>
+          </div>
+        
+      </div>
+      <!-- Pollutants Grid -->
+      <div id="addclass" class="  grid grid-cols-3 gap-4 my-8">
+          <!-- PM2.5 -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-green-500 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                  <img class="w-[60px] p-logo" src="./imgs/pm25.svg" alt="PM2.5">
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Particulate Matter (PM2.5)</p>
+                      <p class="text-gray-500 text-sm">µg/m³</p>
+                  </div>
+              </div>
+              <p id="pm" class="text-gray-900 font-bold text-xl">--</p>
+          </div>
+
+          <!-- PM10 -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-yellow-500 flex justify-between items-center relative">
+              <div class="flex items-center gap-4">
+                  <img class="w-[60px] p-logo"  src="./imgs/pm10.svg" alt="PM10" >
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Particulate Matter (PM10)</p>
+                      <p class="text-gray-500 text-sm">µg/m³</p>
+                  </div>
+              </div>
+              <p id="PM10" class="text-gray-900 font-bold text-xl">--</p>
+              <span class="absolute top-3 right-3 text-red-500"><i class="fas fa-exclamation-circle"></i></span>
+          </div>
+
+          <!-- Carbon Monoxide -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-green-500 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                  <img class="w-[60px] p-logo"  src="./imgs/co.svg" alt="CO" >
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Carbon Monoxide (CO)</p>
+                      <p class="text-gray-500 text-sm">ppb</p>
+                  </div>
+              </div>
+              <p id="co-value" class="text-gray-900 font-bold text-xl">--</p>
+          </div>
+
+          <!-- SO2 -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-green-500 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                  <img  class="w-[60px] p-logo" src="./imgs/so2.svg" alt="SO2" >
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Sulfur Dioxide (SO2)</p>
+                      <p class="text-gray-500 text-sm">ppb</p>
+                  </div>
+              </div>
+              <p id="so2-value" class="text-gray-900 font-bold text-xl">--</p>
+          </div>
+
+          <!-- NO2 -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-green-500 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                  <img  class="w-[60px] p-logo " src="./imgs/no2.svg" alt="NO2" >
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Nitrogen Dioxide (NO2)</p>
+                      <p class="text-gray-500 text-sm">ppb</p>
+                  </div>
+              </div>
+              <p id="no2-value" class="text-gray-900 font-bold text-xl">--</p>
+          </div>
+
+          <!-- O3 -->
+          <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-green-500 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                  <img class="w-[60px] p-logo"  src="./imgs/o3.svg" alt="O3" >
+                  <div>
+                      <p class="text-gray-700 font-medium pol-text ">Ozone (O3)</p>
+                      <p class="text-gray-500 text-sm">ppb</p>
+                  </div>
+              </div>
+              <p id="o3-value" class="text-gray-900 font-bold text-xl">--</p>
+          </div>
+      </div>
+  </section>
+  <footer class="w-full bg-white p-8 mt-36">
+    <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12  text-center md:justify-between">
+      <h1 id="logo" class="text-orange-500 text-4xl cursor-pointer"><a href="">Weathers.io</a></h1>
+      <ul class="flex flex-wrap items-center gap-y-2 gap-x-8">
+        <li>
+          <a
+            href="#"
+            class="text-black hover:text-orange-500 focus:text-slate-500 text-xl text-md "
+          >
+           home
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            class="text-black hover:text-orange-500 focus:text-slate-500 text-xl text-md "
+          >
+          Weather
+          </a>
+        </li>
+        <li>
+          <a
+            href="#air-quality"
+            class="text-black hover:text-orange-500 focus:text-slate-500 text-xl text-md "
+          >
+          Air Quality Index
+
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="coyright">
+    <p class="block mb-4 text-sm text-center text-slate-500 md:mb-0 border-t border-slate-200 mt-4 pt-4">
+    Weathers.io  Copyright © 2025&nbsp; 
+   
+    </p>
+    </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+ <script src="./js/gsap.js"></script>
+</html>
