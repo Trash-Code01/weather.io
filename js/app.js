@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchWeather = async (query) => {
       try {
         const raw = await fetch(
-          `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}&aqi=yes`
+          `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}&aqi=yes`
         );
         const data = await raw.json();
   
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchTodayForecast = async (query) => {
       try {
         const raw = await fetch(
-          `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=1&aqi=no&alerts=no`
+          `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=1&aqi=no&alerts=no`
         );
         const data = await raw.json();
         const { forecast: { forecastday } } = data;
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetch7DayForecast = async (query) => {
       try {
         const response = await fetch(
-          `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=7&aqi=no&alerts=no`
+          `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=7&aqi=no&alerts=no`
         );
         const data = await response.json();
   
