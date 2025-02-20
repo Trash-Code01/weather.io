@@ -113,80 +113,97 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   document.addEventListener("DOMContentLoaded", () => {
-    const API_KEY = "2fbaf4d7fa9846f08dc33008252601";
-  
-    // Fetch and display 7-day forecast
-    const fetch7DayForecast = async (query) => {
-      try {
-        const response = await fetch(
-          `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${query}&days=7&aqi=no&alerts=no`
-        );
-        const data = await response.json();
-  
-        // Extract the forecast data
-        const { forecast: { forecastday } } = data;
-  
-        // Update UI for 7-day forecast
-        update7DayForecast(forecastday);
-      } catch (error) {
-        console.error("Error fetching 7-day forecast:", error);
-      }
-    };
-  
-    const update7DayForecast = (forecastData) => {
-      const forecastContainer = document.querySelector(".flex.flex-col.gap-4.text-white");
-  
-      // Clear previous forecast data
-      forecastContainer.innerHTML = "";
-  
-      // Iterate over forecast data and populate UI
-      forecastData.forEach((day) => {
-        const { date, day: { condition: { text: weather, icon }, maxtemp_c, mintemp_c } } = day;
-  
-        // Create forecast item
-        const forecastItem = document.createElement("div");
-        forecastItem.classList.add("flex", "justify-between", "items-center");
-  
-        forecastItem.innerHTML = `
-          <p class="text-sm">${new Date(date).toLocaleDateString("en-US", {
-            weekday: "short",
-          })}</p>
-          <div class="flex items-center gap-2">
-            <img src="https:${icon}" alt="${weather}" class="w-6 h-6">
-            <span class="font-bold">${weather}</span>
-          </div>
-          <p class="text-sm">${Math.round(maxtemp_c)}°/${Math.round(mintemp_c)}°</p>
-        `;
-  
-        forecastContainer.appendChild(forecastItem);
-      });
-    };
-  
-    // Reuse detectUserLocation to call fetch7DayForecast
-    const detectUserLocationForForecast = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            const query = `${latitude},${longitude}`; // Use latitude and longitude for API
-            fetch7DayForecast(query);
-          },
-          (error) => {
-            console.error("Error getting location for forecast:", error.message);
-            // Show default city forecast if location permission denied
-            fetch7DayForecast("New York");
-          }
-        );
-      } else {
-        console.error("Geolocation is not supported by this browser.");
-        // Show default city forecast if geolocation is unavailable
-        fetch7DayForecast("New York");
-      }
-    };
-  
-    // Detect user location and fetch 7-day forecast on page load 
-    detectUserLocationForForecast();
-  });
+    const API_KEY = "705cdb3875464cc7a11192820252002";
+    
+    // DOM Elements
+    const forecastContainer = document.querySelector(".days-7 .flex.flex-col.gap-4");
+    const hourlyContainer = document.querySelector(".grid.grid-cols-6.gap-4");
+
+    // Fetch weather data
+    async function fetchWeatherData(location) {
+        try {
+            const response = await fetch(
+                `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=7&aqi=no&alerts=no`
+            );
+            if (!response.ok) throw new Error('Weather API error');
+            return await response.json();
+        } catch (error) {
+            console.error('Error fetching weather data:', error);
+            return null;
+        }
+    }
+
+    // Update 7-day forecast
+    function update7DayForecast(forecastData) {
+        forecastContainer.innerHTML = '';
+        forecastData.forEach(day => {
+            const date = new Date(day.date);
+            const dayElement = document.createElement('div');
+            dayElement.className = 'flex justify-between items-center';
+            
+            dayElement.innerHTML = `
+                <p class="text-sm">${date.toLocaleDateString('en-US', { weekday: 'short' })}</p>
+                <div class="flex items-center gap-2">
+                    <img src="https:${day.day.condition.icon}" 
+                         alt="${day.day.condition.text}" 
+                         class="w-6 h-6">
+                    <span class="font-bold">${day.day.condition.text}</span>
+                </div>
+                <p class="text-sm">${Math.round(day.day.maxtemp_c)}°/${Math.round(day.day.mintemp_c)}°</p>
+            `;
+            
+            forecastContainer.appendChild(dayElement);
+        });
+    }
+
+    // Update hourly forecast
+    function updateHourlyForecast(hourlyData) {
+        const timeSlots = ['6:00 AM', '9:00 AM', '12:00 PM', '3:00 PM', '6:00 PM', '9:00 PM'];
+        
+        hourlyData.slice(0, 6).forEach((hour, index) => {
+            const timeSlot = document.querySelector(`#forecast-${timeSlots[index].replace(/[: ]/g, '').toLowerCase()}`);
+            if (timeSlot) {
+                timeSlot.querySelector('img').src = `https:${hour.condition.icon}`;
+                timeSlot.querySelector('.text-lg').textContent = `${Math.round(hour.temp_c)}°`;
+            }
+        });
+    }
+
+    // Location handling
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                async position => {
+                    const data = await fetchWeatherData(
+                        `${position.coords.latitude},${position.coords.longitude}`
+                    );
+                    if (data) {
+                        update7DayForecast(data.forecast.forecastday);
+                        updateHourlyForecast(data.forecast.forecastday[0].hour);
+                    }
+                },
+                async error => {
+                    console.log('Using default location');
+                    const data = await fetchWeatherData("London");
+                    if (data) {
+                        update7DayForecast(data.forecast.forecastday);
+                        updateHourlyForecast(data.forecast.forecastday[0].hour);
+                    }
+                }
+            );
+        } else {
+            fetchWeatherData("London").then(data => {
+                if (data) {
+                    update7DayForecast(data.forecast.forecastday);
+                    updateHourlyForecast(data.forecast.forecastday[0].hour);
+                }
+            });
+        }
+    }
+
+    // Initial load
+    getLocation();
+});
   
   
  

@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const timeline = gsap.timeline();
 
+  
+
   // Animate the logo with a pop-up effect
   timeline.from("#nav #logo", {
     y: -50, // Move from above
@@ -79,7 +81,22 @@ gsap.from("#air-pollution",{
           scroller: "body", 
           toggleActions: "play reset play reset",
       }
+
+
+      
   });
 
-
- 
+  const customCursor = () => {
+    const cursor = document.getElementById("cursor");
+    const body = document.body;
+  
+    body.addEventListener("mousemove", (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.2,
+        ease: "power1.inOut",
+      });
+    });
+  };
+ customCursor();

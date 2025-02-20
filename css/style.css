@@ -15,6 +15,19 @@ body {
    background: #0E1923;
   }
 
+  /* custom cursor */
+  #cursor{
+    height: 50px;
+    width: 50px;
+    background: black;
+    /* overflow: hidden; */
+    border-radius: 50%;
+    position: fixed;
+    transition: transform 0.2s ease;
+    background-image: url(https://i.pinimg.com/736x/a5/52/34/a55234700f6869f9a0711714dfd6fba5.jpg);
+    background-size: cover;
+    background-position: center;
+}
 
   #nav {
     position: relative;
