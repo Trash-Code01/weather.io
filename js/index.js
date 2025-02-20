@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
           const response = await fetch(
-              `http://api.weatherapi.com/v1/current.json?key=${AQI_API_KEY}&q=${query}&aqi=yes`
+              `https://api.weatherapi.com/v1/current.json?key=${AQI_API_KEY}&q=${query}&aqi=yes`
           );
           const data = await response.json();
 
